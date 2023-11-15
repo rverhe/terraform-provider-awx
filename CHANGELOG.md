@@ -1,3 +1,10 @@
+## [1.0.1](https://github.com/rverhe/terraform-provider-awx/compare/v1.0.0...v1.0.1) (2023-11-15)
+
+
+### Bug Fixes
+
+* update schedule ([6e6d1ee](https://github.com/rverhe/terraform-provider-awx/commit/6e6d1ee76ad561d86fb650d076de74a385c2d587))
+
 # 1.0.0 (2023-11-15)
 
 
