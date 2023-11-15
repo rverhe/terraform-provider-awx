@@ -1,19 +1,20 @@
 /*
 *TBD*
 
-Example Usage
+# Example Usage
 
 ```hcl
-resource "awx_schedule" "default" {
-  name                      = "schedule-test"
-  rrule                     = "DTSTART;TZID=Europe/Paris:20211214T120000 RRULE:INTERVAL=1;FREQ=DAILY"
-  unified_job_template_id   = awx_job_template.baseconfig.id
-  extra_data                = <<EOL
+
+	resource "awx_schedule" "default" {
+	  name                      = "schedule-test"
+	  rrule                     = "DTSTART;TZID=Europe/Paris:20211214T120000 RRULE:INTERVAL=1;FREQ=DAILY"
+	  unified_job_template_id   = awx_job_template.baseconfig.id
+	  extra_data                = <<EOL
+
 organization_name: testorg
 EOL
 }
 ```
-
 */
 package awx
 
@@ -120,7 +121,7 @@ func resourceScheduleUpdate(ctx context.Context, d *schema.ResourceData, m inter
 		"unified_job_template": d.Get("unified_job_template_id").(int),
 		"description":          d.Get("description").(string),
 		"enabled":              d.Get("enabled").(bool),
-		"inventory":            AtoipOr(d.Get("inventory").(string), nil),
+		"inventory":            d.Get("inventory").(int),
 		"extra_data":           unmarshalYaml(d.Get("extra_data").(string)),
 	}, map[string]string{})
 	if err != nil {
